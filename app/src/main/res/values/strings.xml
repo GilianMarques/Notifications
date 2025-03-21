@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notification Manager</string>
+
+    <!-- Main Activity -->
+    <string name="no_apps_configured">Nenhum aplicativo configurado</string>
+    <string name="tap_plus_to_add_apps">Toque no botão + para adicionar aplicativos</string>
+    <string name="add_app">Adicionar aplicativo</string>
+    <string name="empty_state_image">Imagem de estado vazio</string>
+    <string name="schedule">Agenda:</string>
+    <string name="list_type">Tipo de Lista:</string>
+    <string name="view_blocked_notifications">Ver notificações bloqueadas</string>
+    <string name="blacklist">Lista Negra</string>
+    <string name="whitelist">Lista Branca</string>
+
+    <!-- App List Activity -->
+    <string name="select_app">Selecionar Aplicativo</string>
+    <string name="search_apps">Buscar aplicativos</string>
+    <string name="no_apps_found">Nenhum aplicativo encontrado</string>
+    <string name="app_icon">Ícone do aplicativo</string>
+    <string name="managed">Gerenciado</string>
+
+    <!-- Configuration Activity -->
+    <string name="configure_notifications">Configurar Notificações</string>
+    <string name="notification_list_type">Tipo de Lista de Notificações</string>
+    <string name="blacklist_description">Lista Negra: Notificações serão bloqueadas durante os dias e horários selecionados</string>
+    <string name="whitelist_description">Lista Branca: Notificações serão permitidas apenas durante os dias e horários selecionados</string>
+    <string name="select_days">Selecione os Dias</string>
+    <string name="select_time_range">Selecione o Intervalo de Tempo</string>
+    <string name="start_time">Hora de Início</string>
+    <string name="end_time">Hora de Término</string>
+    <string name="save_configuration">Salvar Configuração</string>
+    <string name="select_start_time">Selecione a Hora de Início</string>
+    <string name="select_end_time">Selecione a Hora de Término</string>
+    <string name="configuration_saved">Configuração salva com sucesso</string>
+    <string name="error_invalid_package">Pacote inválido</string>
+    <string name="schedule_format">%1$s | %2$s - %3$s</string>
+    <string name="no_days_selected">Nenhum dia selecionado</string>
+
+    <!-- Blocked Notifications Activity -->
+    <string name="blocked_notifications">Notificações Bloqueadas</string>
+    <string name="blocked_for_app">Bloqueadas para %1$s</string>
+    <string name="clear_all">Limpar Tudo</string>
+    <string name="no_blocked_notifications">Sem notificações bloqueadas</string>
+    <string name="blocked_notifications_will_appear_here">As notificações bloqueadas aparecerão aqui</string>
+    <string name="remove_notification">Remover Notificação</string>
+    <string name="remove_notification_confirm">Tem certeza que deseja remover esta notificação?</string>
+    <string name="remove">Remover</string>
+    <string name="clear_all_notifications">Limpar Todas as Notificações</string>
+    <string name="clear_all_notifications_confirm">Tem certeza que deseja limpar todas as notificações bloqueadas deste aplicativo?</string>
+    <string name="cancel">Cancelar</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">Permissão Necessária</string>
+    <string name="notification_permission_explanation">Este aplicativo precisa acessar suas notificações para gerenciá-las. Por favor, habilite o acesso às notificações.</string>
+    <string name="allow_access">Permitir Acesso</string>
+
+    <!-- Services and Channels -->
+    <string name="notification_channel_name">Canal do Gerenciador de Notificações</string>
+    <string name="notification_channel_description">Canal usado para o serviço em primeiro plano do Gerenciador de Notificações</string>
+    <string name="notification_service_title">Gerenciador de Notificações</string>
+    <string name="notification_service_text">Monitorando notificações</string>
+    <string name="blocked_notifications_channel">Notificações Bloqueadas</string>
+    <string name="blocked_notifications_channel_description">Canal usado para exibir notificações que foram bloqueadas anteriormente</string>
+    <string name="service_channel">Serviço de Notificação</string>
+    <string name="service_channel_description">Canal usado para o serviço em primeiro plano</string>
+</resources>
