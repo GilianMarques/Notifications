@@ -13,13 +13,12 @@ import dev.gmarques.notifications.R
 import dev.gmarques.notifications.databinding.ActivityMainBinding
 import dev.gmarques.notifications.domain.model.AppConfiguration
 import dev.gmarques.notifications.domain.model.AppInfo
-import dev.gmarques.notifications.domain.service.NotificationForegroundService
+import dev.gmarques.notifications.domain.service.MyNotificationForegroundService
 import dev.gmarques.notifications.ui.applist.AppListActivity
 import dev.gmarques.notifications.ui.blockednotifications.BlockedNotificationsActivity
 import dev.gmarques.notifications.ui.configuration.ConfigurationActivity
 import dev.gmarques.notifications.ui.viewmodel.MainViewModel
 import dev.gmarques.notifications.utils.isNotificationListenerEnabled
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.Locale
 
@@ -81,6 +80,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AppListActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     private fun openConfigurationScreen(packageName: String) {
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             showNotificationPermissionDialog()
         } else {
             // Inicia o service em primeiro plano
-            NotificationForegroundService.Starter.startService(this)
+            MyNotificationForegroundService.Starter.startService(this)
         }
     }
 

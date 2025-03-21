@@ -1,6 +1,7 @@
 package dev.gmarques.notifications.ui.configuration
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -61,7 +62,7 @@ class ConfigurationActivity : AppCompatActivity() {
     }
 
     private fun setupDayChips() {
-        DayOfWeek.values().forEach { day ->
+        DayOfWeek.entries.forEach { day ->
             val chip = Chip(this).apply {
                 text = day.getDisplayName(TextStyle.SHORT, Locale.getDefault())
                 isCheckable = true
@@ -78,9 +79,13 @@ class ConfigurationActivity : AppCompatActivity() {
     }
 
     private fun updateDayChips(selectedDays: Set<DayOfWeek>) {
-        for (i in 0 until binding.chipGroupDays.childCount) {
+        Log.d(
+            "USUK",
+            "ConfigurationActivity.".plus("updateDayChips() selectedDays = $selectedDays")
+        )
+           for (i in 0 until binding.chipGroupDays.childCount) {
             val chip = binding.chipGroupDays.getChildAt(i) as Chip
-            val day = DayOfWeek.values()[i]
+            val day: DayOfWeek = DayOfWeek.entries[i]
             chip.isChecked = selectedDays.contains(day)
         }
     }
@@ -149,11 +154,12 @@ class ConfigurationActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.appInfo.observe(this) { appInfo ->
+            Log.d("USUK", "ConfigurationActivity.observeViewModel 0: $appInfo")
             binding.imageAppIcon.setImageDrawable(appInfo.appIcon)
             binding.textAppName.text = appInfo.appName
         }
 
-        viewModel.selectedDays.observe(this) { days ->
+        viewModel.selectedDays.observe(this) { days -> //loop aqui
             updateDayChips(days)
         }
 

@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
         android:name=".NotificationManagerApp"
@@ -40,7 +42,7 @@
             android:exported="false" />
 
         <service
-            android:name=".domain.service.NotificationListenerService"
+            android:name=".domain.service.MyNotificationListenerService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
             android:exported="false">
@@ -50,7 +52,7 @@
         </service>
 
         <service
-            android:name=".domain.service.NotificationForegroundService"
+            android:name=".domain.service.MyNotificationForegroundService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="dataSync" />

@@ -2,6 +2,7 @@ package dev.gmarques.notifications.ui.applist
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.SearchView
 import androidx.activity.viewModels
@@ -67,6 +68,7 @@ class AppListActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.installedApps.observe(this) { apps ->
+            Log.d("USUK", "AppListActivity.".plus("observeViewModel() apps = $apps"))
             adapter.submitList(apps)
             adapter.setOriginalList(apps)
             updateEmptyState(apps.isEmpty())

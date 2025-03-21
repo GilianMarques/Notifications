@@ -1,5 +1,6 @@
 package dev.gmarques.notifications.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -48,6 +49,8 @@ class ConfigurationViewModel @Inject constructor(
             }
 
             appRepository.getAppConfiguration(packageName)?.let { config ->
+
+                Log.d("USUK", "ConfigurationViewModel.".plus("loadAppInfo() config = $config"))
                 _appConfiguration.postValue(config)
                 _selectedDays.postValue(config.scheduledDays)
                 _startTime.postValue(config.startTime)

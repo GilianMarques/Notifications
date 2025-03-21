@@ -10,6 +10,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonPrimitive
 import com.google.gson.JsonSerializationContext
 import com.google.gson.JsonSerializer
+import dev.gmarques.notifications.domain.service.MyNotificationListenerService
 import java.lang.reflect.Type
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -44,13 +45,20 @@ class LocalTimeTypeAdapter : JsonSerializer<LocalTime>, JsonDeserializer<LocalTi
  */
 fun isNotificationListenerEnabled(context: Context): Boolean {
     val packageName = context.packageName
-    val serviceString = packageName + "/" + NotificationListenerService::class.java.name
+    // Substitua YourNotificationListener pelo nome da sua implementação de NotificationListenerService
+    val serviceString = "$packageName/${ MyNotificationListenerService::class.java.name}"
     val enabledListeners = android.provider.Settings.Secure.getString(
         context.contentResolver,
         "enabled_notification_listeners"
     )
+
+    // Para debug: Log.d("NotificationCheck", "Current listeners: $enabledListeners")
+    // Para debug: Log.d("NotificationCheck", "Seeking service: $serviceString")
+
     return enabledListeners?.contains(serviceString) ?: false
 }
+
+
 
 /**
  * Extensão para converter StatusBarNotification em uma string legível

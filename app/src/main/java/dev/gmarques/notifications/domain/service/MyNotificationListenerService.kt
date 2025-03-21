@@ -29,7 +29,7 @@ import javax.inject.Inject
  * Service para monitorar notificações
  */
 @AndroidEntryPoint
-class NotificationListenerService : NotificationListenerService() {
+class MyNotificationListenerService : NotificationListenerService() {
 
     @Inject
     lateinit var notificationFilterUseCase: NotificationFilterUseCase
@@ -49,7 +49,7 @@ class NotificationListenerService : NotificationListenerService() {
  * Service em primeiro plano para garantir a execução contínua
  */
 @AndroidEntryPoint
-class NotificationForegroundService : Service() {
+class MyNotificationForegroundService : Service() {
 
     companion object {
         private const val NOTIFICATION_ID = 1
@@ -123,7 +123,7 @@ class NotificationForegroundService : Service() {
     class Starter {
         companion object {
             fun startService(context: Context) {
-                val intent = Intent(context, NotificationForegroundService::class.java)
+                val intent = Intent(context, MyNotificationForegroundService::class.java)
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     context.startForegroundService(intent)
@@ -141,7 +141,7 @@ class NotificationForegroundService : Service() {
 class BootCompletedReceiver : android.content.BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-            NotificationForegroundService.Starter.startService(context)
+            MyNotificationForegroundService.Starter.startService(context)
         }
     }
 }
