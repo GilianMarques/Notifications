@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -43,10 +42,10 @@
                 android:layout_marginStart="16dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageAppIcon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imageAppIcon"
                 app:layout_constraintTop_toTopOf="@id/imageAppIcon"
-                app:layout_constraintBottom_toBottomOf="@id/imageAppIcon"
                 tools:text="App Name" />
 
             <com.google.android.material.card.MaterialCardView
@@ -63,31 +62,15 @@
                     android:layout_height="wrap_content"
                     android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/textListTypeTitle"
-                        android:layout_width="wrap_content"
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchListType"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/notification_list_type"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
+                        android:text="Lista negra"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switchListType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/textListTypeTitle" />
-
-                    <TextView
-                        android:id="@+id/textBlacklist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/blacklist"
-                        app:layout_constraintEnd_toStartOf="@id/switchListType"
-                        app:layout_constraintTop_toTopOf="@id/switchListType" />
 
                     <TextView
                         android:id="@+id/textWhitelist"
@@ -102,8 +85,8 @@
                         android:id="@+id/textListTypeDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintTop_toBottomOf="@id/textListTypeTitle"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="60dp"
                         tools:text="@string/blacklist_description" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
